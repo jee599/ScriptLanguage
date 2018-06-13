@@ -79,6 +79,12 @@ def CreateAddButton():
     AddButton.pack()
     AddButton.place(x=330, y=80)
 
+def CreateChangeButton():
+    TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
+    AddButton = Button(window, font = TempFont, borderwidth = 10, text = "변경", command=ChangeButtonAction)
+    AddButton.pack()
+    AddButton.place(x=250, y=200)
+
 def CreateRenderText():
     global RenderText
     RenderTextScrollbar = Scrollbar(window)
@@ -149,6 +155,29 @@ def AddButtonAction():
 
     doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
 
+def ChangeButtonAction():
+    global oldLabel, newLabel
+    RenderText.configure(state='normal')
+    RenderText.delete(0.0, END)
+
+    oldLabel = str(InputLabel.get())
+    newLabel = str(DelLabel.get())
+
+    switch = 0
+    for location in Data1.findall("list"):
+        if oldLabel == location.findtext("serviceAreaName"):
+            location.findtext("batchMenu").text = newLabel
+            RenderText.insert(INSERT, "대표음식 변경 완료")
+            switch = 1
+
+    if switch == 0:
+        RenderText.insert(INSERT, "그런 휴게소는 없습니다.")
+
+    RenderText.configure(state = 'disabled')
+
+    InputLabel.delete(0, END)
+    DelLabel.delete(0, END)
+    doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
 def SearchButtonAction():
     global InputLabel, RenderText,window
     RenderText.configure(state='normal')
@@ -344,6 +373,7 @@ CreateSearchButton()
 CreateAddButton()
 CreateDelButton()
 CreatePrintListButton()
+CreateChangeButton()
 CreateRenderText()
 
 window.mainloop()
