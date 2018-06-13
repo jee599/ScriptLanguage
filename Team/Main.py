@@ -21,19 +21,40 @@ def CreateTitleLabel():
     ltitle.place(x=20, y=30)
 
 def CreateAddLabel():
-    global AddLabel
-    TempFont = font.Font(window, size=15,weight='bold', family = 'Consolas')
-    AddLabel = Entry(window, font = TempFont, width = 26, borderwidth = 12, relief = 'ridge')
+    CreateNameLabel()
+    CreatePriceLabel()
+    CreateFoodLabel()
 
-    AddLabel.pack()
-    AddLabel.place(x=10, y=80)
+def CreateNameLabel():
+    global NameLabel
+    TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
+    NameLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
+
+    NameLabel.pack()
+    NameLabel.place(x=10, y=80)
+def CreateFoodLabel():
+    global FoodLabel
+    TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
+    NameLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
+
+    NameLabel.pack()
+    NameLabel.place(x=110, y=80)
+
+def CreatePriceLabel():
+    global PriceLabel
+    TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
+    PriceLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
+
+    PriceLabel.pack()
+    PriceLabel.place(x=210, y=80)
 
 def CreateDelLabel():
     global DelLabel
-    TempFont = font.Font(window, size=15, weight='bold', family='Consolas')
+    TempFont = font.Font(window, size=10, weight='bold', family='Consolas')
     DelLabel = Entry(window, font=TempFont, width=26, borderwidth=12, relief='ridge')
     DelLabel.pack()
     DelLabel.place(x=10, y=200)
+
 def CreateDelButton():
     TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
     DelButton = Button(window, font=TempFont, borderwidth=10, text="ªË¡¶", command=DelButtonAction)
@@ -42,7 +63,7 @@ def CreateDelButton():
 
 def CreateInputLabel():
     global InputLabel
-    TempFont = font.Font(window, size = 15, weight = 'bold', family = 'Consolas')
+    TempFont = font.Font(window, size = 10, weight = 'bold', family = 'Consolas')
     InputLabel = Entry(window, font = TempFont, width = 26, borderwidth = 12, relief = 'ridge')
     InputLabel.pack()
     InputLabel.place(x=10,y=140)
@@ -92,14 +113,19 @@ def DelButtonAction():
 
 
 def AddButtonAction():
-    global AddLabel, RenderText, window
+    global NameLabel, RenderText, window,FoodLabel, PriceLabel
     RenderText.configure(state='normal')
     RenderText.delete(0.0, END)
 
-    keyword = str(AddLabel.get())
+    Name = str(NameLabel.get())
+    Food = str(FoodLabel.get())
+    Price = str(PriceLabel.get())
 
     RenderText.configure(state = 'disabled')
-    AddLabel.delete(0,END)
+
+    NameLabel.delete(0,END)
+    FoodLabel.delete(0,END)
+    PriceLabel.delete(0,END)
 
 def SearchButtonAction():
     global InputLabel, RenderText,window
@@ -109,10 +135,8 @@ def SearchButtonAction():
     #iSearchIndex = str(SearchListBox.curselection())
 
     keyword = str(InputLabel.get())
-
     SearchLibName(keyword)
     SearchLibAddress(keyword)
-    SearchPrice(keyword)
 
     #RenderText.insert(INSERT, InputLabel.get())
 

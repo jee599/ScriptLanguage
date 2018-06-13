@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29e00148-0b50-46a8-969d-7efc43ba7ad2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Team/Data1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Data1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Team/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Team/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
+            <state relative-caret-position="398">
+              <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="e#24#46#0" expanded="true" />
               </folding>
@@ -285,8 +284,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Team/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
+        <state relative-caret-position="398">
+          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
           <folding>
             <element signature="e#24#46#0" expanded="true" />
           </folding>
