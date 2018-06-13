@@ -35,7 +35,11 @@ def CreateDelLabel():
     DelLabel.pack()
     DelLabel.place(x=10, y=200)
 def CreateDelButton():
-    
+    TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
+    DelButton = Button(window, font=TempFont, borderwidth=10, text="삭제", command=DelButtonAction)
+    DelButton.pack()
+    DelButton.place(x=330, y=200)
+
 def CreateInputLabel():
     global InputLabel
     TempFont = font.Font(window, size = 15, weight = 'bold', family = 'Consolas')
@@ -82,9 +86,10 @@ def DelButtonAction():
     RenderText.delete(0.0, END)
 
     keyword = str(DelLabel.get())
-
+    DeleteName(keyword)
     RenderText.configure(state='disabled')
     DelLabel.delete(0, END)
+
 
 def AddButtonAction():
     global AddLabel, RenderText, window
@@ -107,6 +112,7 @@ def SearchButtonAction():
 
     SearchLibName(keyword)
     SearchLibAddress(keyword)
+    SearchPrice(keyword)
 
     #RenderText.insert(INSERT, InputLabel.get())
 
@@ -152,9 +158,7 @@ def PrintList():
         RenderText.insert(INSERT, "방향     : ")
         RenderText.insert(INSERT, location.findtext("direction"))
         RenderText.insert(INSERT, chr(10))
-
         i += 1
-
 
     RenderText.configure(state='disabled')
 
@@ -164,14 +168,26 @@ def DeleteName(keyword):
     for location in Data1.findall("list"):
         if keyword in location.findtext("serviceAreaName"):
             Data1.remove(location)
+            RenderText.insert(INSERT, keyword)
+            RenderText.insert(INSERT, "휴게소 삭제 완료")
 
     doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
-
 
 def SearchPrice(keyword):
     global Data1, RenderText
 
     i = 0
+
+    for location in Data1.findall("list"):
+        if keyword in location.findtext("salePrice"):
+            i = i + 1
+    if i != 0:
+        RenderText.insert(INSERT, " - 가격 검색 결과 - ")
+        RenderText.insert(INSERT, chr(10))
+        RenderText.insert(INSERT, " 총 = ")
+        RenderText.insert(INSERT, i)
+        RenderText.insert(INSERT, " 건 ")
+        RenderText.insert(INSERT, chr(10))
 
     for location in Data1.findall("list"):
         if keyword in location.findtext("salePrice"):
@@ -197,8 +213,21 @@ def SearchPrice(keyword):
 def SearchLibName(keyword):
     global Data1, RenderText
     i=0
+
     for location in Data1.findall("list"):
         if keyword in location.findtext("serviceAreaName"):
+            i = i+1
+    if i != 0:
+        RenderText.insert(INSERT, " - 휴게소명 검색 결과 - ")
+        RenderText.insert(INSERT, chr(10))
+        RenderText.insert(INSERT, " 총 = ")
+        RenderText.insert(INSERT, i)
+        RenderText.insert(INSERT, " 건 ")
+        RenderText.insert(INSERT, chr(10))
+
+    for location in Data1.findall("list"):
+        if keyword in location.findtext("serviceAreaName"):
+
             RenderText.insert(INSERT, chr(10))
             RenderText.insert(INSERT, "휴게소명 : ")
             RenderText.insert(INSERT, location.findtext("serviceAreaName"))
@@ -224,6 +253,16 @@ def SearchLibName(keyword):
 def SearchLibAddress(keyword):
     global Data1, RenderText
     i = 0
+    for location in Data1.findall("list"):
+        if keyword in location.findtext("routeName"):
+            i = i + 1
+    if i != 0:
+        RenderText.insert(INSERT, " - 노선 검색 결과 - ")
+        RenderText.insert(INSERT, chr(10))
+        RenderText.insert(INSERT, " 총 = ")
+        RenderText.insert(INSERT, i)
+        RenderText.insert(INSERT, " 건 ")
+        RenderText.insert(INSERT, chr(10))
 
     for location in Data1.findall("list"):
         if keyword in location.findtext("routeName"):
@@ -255,6 +294,7 @@ CreateDelLabel()
 CreateInputLabel()
 CreateSearchButton()
 CreateAddButton()
+CreateDelButton()
 CreatePrintListButton()
 CreateRenderText()
 
