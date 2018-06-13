@@ -120,18 +120,26 @@ def AddButtonAction():
     Food = str(FoodLabel.get())
     Price = str(PriceLabel.get())
 
-    New = Element("list")
-    NewName = Element("serviceAreaName")
-    NewName.text = Name
-    New.append(NewName)
-    NewFood = Element("batchMenu")
-    NewFood.text = Food
-    New.append(NewFood)
-    NewPrice = Element("salePrice")
-    NewPrice.text = Price
-    New.append(NewPrice)
+    switch = 0
+    for location in Data1.findall("list"):
+        if  Name in location.findtext("serviceAreaName"):
+            RenderText.insert(INSERT, "»ßºò! Áßº¹ÀÔ´Ï´Ù.")
+            switch = 1
 
-    Data1.append(New)
+    if switch == 0:
+        New = Element("list")
+        NewName = Element("serviceAreaName")
+        NewName.text = Name
+        New.append(NewName)
+        NewFood = Element("batchMenu")
+        NewFood.text = Food
+        New.append(NewFood)
+        NewPrice = Element("salePrice")
+        NewPrice.text = Price
+        New.append(NewPrice)
+        RenderText.insert(INSERT, Name)
+        RenderText.insert(INSERT, "ÈÞ°Ô¼Ò Ãß°¡ ¿Ï·á.")
+        Data1.append(New)
 
     RenderText.configure(state = 'disabled')
 
@@ -140,7 +148,6 @@ def AddButtonAction():
     PriceLabel.delete(0,END)
 
     doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
-
 
 def SearchButtonAction():
     global InputLabel, RenderText,window
@@ -168,8 +175,9 @@ def PrintList():
     i=0
 
     for location in Data1.findall("list"):
+        i += 1
         RenderText.insert(INSERT, "[")
-        RenderText.insert(INSERT, i + 1)
+        RenderText.insert(INSERT, i)
         RenderText.insert(INSERT, "]")
 
         RenderText.insert(INSERT, chr(10))
@@ -200,7 +208,6 @@ def PrintList():
             RenderText.insert(INSERT, chr(10))
         except:
             RenderText.insert(INSERT, chr(10))
-    i += 1
     RenderText.configure(state='disabled')
 
 def DeleteName(keyword):
