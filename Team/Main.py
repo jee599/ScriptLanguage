@@ -12,7 +12,7 @@ Data1 = doc.getroot()
 
 window = Tk()
 window.title("휴게소 대표 음식")
-window.geometry("600x600+750+200")
+window.geometry("450x800+750+200")
 
 def CreateTitleLabel():
     title = "[휴게소 대표음식]"
@@ -166,7 +166,12 @@ def ChangeButtonAction():
     switch = 0
     for location in Data1.findall("list"):
         if oldLabel == location.findtext("serviceAreaName"):
-            location.findtext("batchMenu").text = newLabel
+            old = location.find("batchMenu")
+            location.remove(old)
+            New = Element("batchMenu")
+            New.text = newLabel
+            location.append(New)
+
             RenderText.insert(INSERT, "대표음식 변경 완료")
             switch = 1
 
@@ -178,6 +183,7 @@ def ChangeButtonAction():
     InputLabel.delete(0, END)
     DelLabel.delete(0, END)
     doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
+
 def SearchButtonAction():
     global InputLabel, RenderText,window
     RenderText.configure(state='normal')
