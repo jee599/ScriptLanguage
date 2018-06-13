@@ -2,6 +2,7 @@
 from readdata import *
 from tkinter import *
 from tkinter import font
+
 import xml.etree.ElementTree as ET
 
 Data1 = LoadXML1()
@@ -16,16 +17,15 @@ def CreateTitleLabel():
     titlefont = font.Font(window, size=20, weight='bold', family='Consolas')
     ltitle = Label(window, font=titlefont, text=title)
     ltitle.pack()
-    ltitle.place(x=5, y=10)
+    ltitle.place(x=20, y=30)
 
 def CreateSearchListBox():
     global SearchListBox
     TempFont = font.Font(window, size=15,weight='bold', family = 'Consolas')
-    SearchListBox = Listbox(window, font = TempFont, activestyle = 'none',
-                            width = 20, height = 2, borderwidth = 8, relief = 'ridge')
+    SearchListBox = Entry(window, font = TempFont, width = 26, borderwidth = 12, relief = 'ridge')
 
     SearchListBox.pack()
-    SearchListBox.place(x=10, y=70)
+    SearchListBox.place(x=10, y=80)
 
 def CreateInputLabel():
     global InputLabel
@@ -38,13 +38,13 @@ def CreateSearchButton():
     TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
     SearchButton = Button(window, font = TempFont, borderwidth = 10, text = "검색", command=SearchButtonAction)
     SearchButton.pack()
-    SearchButton.place(x=350, y=140)
+    SearchButton.place(x=330, y=140)
 
 def CreateAddButton():
     TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
     AddButton = Button(window, font = TempFont, borderwidth = 10, text = "추가", command=SearchButtonAction)
     AddButton.pack()
-    AddButton.place(x=350, y=80)
+    AddButton.place(x=330, y=80)
 
 def CreateRenderText():
     global RenderText
@@ -66,19 +66,20 @@ def CreatePrintListButton():
     TempFont = font.Font(window, size=12, weight='bold', family='Consolas')
     SearchButton = Button(window, font=TempFont, borderwidth=10, text="전체 출력", command=PrintList)
     SearchButton.pack()
-    SearchButton.place(x=350, y=28)
+    SearchButton.place(x=290, y= 20)
 
 def SearchButtonAction():
     global SearchListBox, InputLabel, RenderText,window
     RenderText.configure(state='normal')
     RenderText.delete(0.0, END)
 
-    iSearchIndex = str(SearchListBox.curselection())
+    #iSearchIndex = str(SearchListBox.curselection())
 
     keyword = str(InputLabel.get())
+
     SearchLibName(keyword)
     SearchLibAddress(keyword)
-    SearchPrice(keyword)
+    DeletePrice(keyword)
 
     #RenderText.insert(INSERT, InputLabel.get())
 
@@ -86,10 +87,15 @@ def SearchButtonAction():
     InputLabel.delete(0,END)
 
 def PrintList():
+
     global Data1, Data2, RenderText
+
     RenderText.configure(state='normal')
     RenderText.delete(0.0, END)
+
+    ET.dump(Data1)
     i=0
+
     for location in Data1.findall("list"):
         RenderText.insert(INSERT, "[")
         RenderText.insert(INSERT, i + 1)
@@ -159,9 +165,18 @@ def PrintList():
 
     RenderText.configure(state='disabled')
 
+def DeletePrice(keyword):
+    global Data1, RenderText
+
+    for location in Data1.findall("list"):
+        if keyword in location.findtext("salePrice"):
+            Data1.remove(location)
+
 def SearchPrice(keyword):
     global Data1, RenderText
+
     i = 0
+
     for location in Data1.findall("list"):
         if keyword in location.findtext("salePrice"):
             RenderText.insert(INSERT, chr(10))
@@ -186,7 +201,6 @@ def SearchPrice(keyword):
 def SearchLibName(keyword):
     global Data1, RenderText
     i=0
-
     for location in Data1.findall("list"):
         if keyword in location.findtext("serviceAreaName"):
             RenderText.insert(INSERT, chr(10))
