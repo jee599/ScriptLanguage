@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29e00148-0b50-46a8-969d-7efc43ba7ad2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Team/Data1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Data1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Team/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Main.py" afterDir="false" />
     </list>
@@ -39,8 +38,8 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Team/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+            <state relative-caret-position="398">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#24#46#0" expanded="true" />
               </folding>
@@ -294,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Team/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        <state relative-caret-position="398">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#24#46#0" expanded="true" />
           </folding>

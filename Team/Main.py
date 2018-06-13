@@ -38,7 +38,7 @@ def CreateFoodLabel():
     TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
     FoodLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
     FoodLabel.pack()
-    NameLabel.place(x=110, y=80)
+    FoodLabel.place(x=110, y=80)
 
 def CreatePriceLabel():
     global PriceLabel
