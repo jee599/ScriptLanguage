@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29e00148-0b50-46a8-969d-7efc43ba7ad2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Team/Data1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Data1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Team/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Team/Main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +18,8 @@
       <file leaf-file-name="readdata.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Team/readdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="308">
+              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding>
                 <element signature="e#24#58#0" expanded="true" />
               </folding>
@@ -37,8 +39,8 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Team/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            <state relative-caret-position="360">
+              <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding>
                 <element signature="e#24#46#0" expanded="true" />
               </folding>
@@ -48,14 +50,18 @@
       </file>
       <file leaf-file-name="Data1.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Team/Data1.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="1" column="289" lean-forward="true" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="289" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/Python36-32/Lib/tkinter/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
-              <caret line="1701" selection-start-line="1701" selection-end-line="1701" />
+              <caret line="3268" selection-start-line="3268" selection-end-line="3268" />
             </state>
           </provider>
         </entry>
@@ -83,8 +89,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1750" />
-    <option name="height" value="970" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -255,16 +261,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled/readdata.py" />
     <entry file="file://$PROJECT_DIR$/untitled/Main.py" />
-    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="1701" selection-start-line="1701" selection-end-line="1701" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Team/Data1.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Team/Data2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -274,18 +270,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Team/readdata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="39" />
+        <state relative-caret-position="308">
+          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding>
             <element signature="e#24#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Team/Data1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="1" column="289" lean-forward="true" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="289" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="3268" selection-start-line="3268" selection-end-line="3268" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Team/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        <state relative-caret-position="360">
+          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
             <element signature="e#24#46#0" expanded="true" />
           </folding>

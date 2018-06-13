@@ -3,6 +3,7 @@ from readdata import *
 from tkinter import *
 from tkinter import font
 from xml.etree.ElementTree import parse
+from xml.etree.ElementTree import Element, SubElement
 
 import xml.etree.ElementTree as ET
 
@@ -29,22 +30,20 @@ def CreateNameLabel():
     global NameLabel
     TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
     NameLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
-
     NameLabel.pack()
     NameLabel.place(x=10, y=80)
+
 def CreateFoodLabel():
     global FoodLabel
     TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
-    NameLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
-
-    NameLabel.pack()
+    FoodLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
+    FoodLabel.pack()
     NameLabel.place(x=110, y=80)
 
 def CreatePriceLabel():
     global PriceLabel
     TempFont = font.Font(window, size=10,weight='bold', family = 'Consolas')
     PriceLabel = Entry(window, font = TempFont, width = 10, borderwidth = 12, relief = 'ridge')
-
     PriceLabel.pack()
     PriceLabel.place(x=210, y=80)
 
@@ -113,7 +112,7 @@ def DelButtonAction():
 
 
 def AddButtonAction():
-    global NameLabel, RenderText, window,FoodLabel, PriceLabel
+    global NameLabel, RenderText, window, FoodLabel, PriceLabel
     RenderText.configure(state='normal')
     RenderText.delete(0.0, END)
 
@@ -121,11 +120,27 @@ def AddButtonAction():
     Food = str(FoodLabel.get())
     Price = str(PriceLabel.get())
 
+    New = Element("list")
+    NewName = Element("serviceAreaName")
+    NewName.text = Name
+    New.append(NewName)
+    NewFood = Element("batchMenu")
+    NewFood.text = Food
+    New.append(NewFood)
+    NewPrice = Element("salePrice")
+    NewPrice.text = Price
+    New.append(NewPrice)
+
+    Data1.append(New)
+
     RenderText.configure(state = 'disabled')
 
     NameLabel.delete(0,END)
     FoodLabel.delete(0,END)
     PriceLabel.delete(0,END)
+
+    doc.write("Data1.xml", encoding="utf-8", xml_declaration=True)
+
 
 def SearchButtonAction():
     global InputLabel, RenderText,window
@@ -136,7 +151,7 @@ def SearchButtonAction():
 
     keyword = str(InputLabel.get())
     SearchLibName(keyword)
-    SearchLibAddress(keyword)
+    #SearchLibAddress(keyword)
 
     #RenderText.insert(INSERT, InputLabel.get())
 
@@ -176,14 +191,16 @@ def PrintList():
         except:
             RenderText.insert(INSERT, chr(10))
             pass
-        RenderText.insert(INSERT, "위치     : ")
-        RenderText.insert(INSERT, location.findtext("routeName"))
-        RenderText.insert(INSERT, chr(10))
-        RenderText.insert(INSERT, "방향     : ")
-        RenderText.insert(INSERT, location.findtext("direction"))
-        RenderText.insert(INSERT, chr(10))
-        i += 1
-
+        try:
+            RenderText.insert(INSERT, "위치     : ")
+            RenderText.insert(INSERT, location.findtext("routeName"))
+            RenderText.insert(INSERT, chr(10))
+            RenderText.insert(INSERT, "방향     : ")
+            RenderText.insert(INSERT, location.findtext("direction"))
+            RenderText.insert(INSERT, chr(10))
+        except:
+            RenderText.insert(INSERT, chr(10))
+    i += 1
     RenderText.configure(state='disabled')
 
 def DeleteName(keyword):
